@@ -8,24 +8,27 @@ const structure = new XMLHttpRequest();
 
 };*/
 
-
 structure.open('GET', 'structure.json');
 structure.send();
 
+
 structure.onload = () => {
-
-    var bigHeader = document.createElement('h1');
-    var smallHeader = document.createElement('h2');
-    
-    var headers = JSON.parse(structure.responseText);
-
-    bigHeader.innerHTML = headers.h1;
-    smallHeader.innerHTML = headers.h2;
 
     var divTitle = document.getElementById('title');
 
-    divTitle.appendChild(bigHeader);
-    divTitle.appendChild(smallHeader);
+    var headers = JSON.parse(structure.responseText);
+
+    for ( var key in headers) {
+
+        var header = document.createElement(key);
+
+        header.innerHTML = headers[key];
+
+        divTitle.appendChild(header)
+
+    }
+
+
 
     console.log('loaded ' + structure.responseText);
 
