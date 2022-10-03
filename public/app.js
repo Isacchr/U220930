@@ -35,6 +35,7 @@ carList.onload = () => {
 
     cars.cars.forEach(car => {
 
+        
         var listElements = document.createElement('li');
 
         carInfo = JSON.stringify(car);
