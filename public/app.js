@@ -27,9 +27,13 @@ structure.onload = () => {
 
 }
 
-carsJSON.onload = () => {
+
+hideList = () => {
+
+    divCarList.hidden = false;
 
     var ulList = document.getElementById('carUlList');
+    ulList.innerHTML = '';
 
     var cars = JSON.parse(carsJSON.responseText);
 
@@ -37,19 +41,11 @@ carsJSON.onload = () => {
 
         var listElements = document.createElement('li');
 
-        carInfo = JSON.stringify(car);
-
-        listElements.innerHTML = (`${car.Brand} ${car.Modell} ${car.Year}`);
+        listElements.innerHTML = (`${car.Brand} - ${car.Modell} - ${car.Year}`);
 
         ulList.appendChild(listElements);
 
     });
-
-}
-
-hideList = () => {
-
-    divCarList.hidden = false;
 
 }
 
