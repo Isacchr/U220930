@@ -4,10 +4,10 @@ const structure = new XMLHttpRequest();
 structure.open('GET', 'structure.json');
 structure.send();
 
-const carList = new XMLHttpRequest();
+const carsJSON = new XMLHttpRequest();
 
-carList.open('GET', 'cars.json');
-carList.send();
+carsJSON.open('GET', 'cars.json');
+carsJSON.send();
 
 structure.onload = () => {
 
@@ -27,15 +27,14 @@ structure.onload = () => {
 
 }
 
-carList.onload = () => {
+carsJSON.onload = () => {
 
-    var ulList = document.getElementById('carList');
+    var ulList = document.getElementById('carUlList');
 
-    var cars = JSON.parse(carList.responseText);
+    var cars = JSON.parse(carsJSON.responseText);
 
     cars.cars.forEach(car => {
 
-        
         var listElements = document.createElement('li');
 
         carInfo = JSON.stringify(car);
