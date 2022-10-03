@@ -1,12 +1,5 @@
-console.log('hey from js');
 
 const structure = new XMLHttpRequest();
-
-/*structure.onreadystatechange = () => {
-
-    console.log('READYSTATE ' + structure.readyState + ' ' + structure.responseText);
-
-};*/
 
 structure.open('GET', 'structure.json');
 structure.send();
@@ -32,8 +25,6 @@ structure.onload = () => {
 
     }
 
-    console.log('loaded ' + structure.responseText);
-
 }
 
 carList.onload = () => {
@@ -42,15 +33,18 @@ carList.onload = () => {
 
     var cars = JSON.parse(carList.responseText);
 
-    for ( var key in cars) {
+    cars.cars.forEach(car => {
 
         var listElements = document.createElement('li');
 
-        listElements.innerHTML = cars[key];
+        carInfo = JSON.stringify(car);
+
+        listElements.innerHTML = (`${car.Brand} ${car.Modell} ${car.Year}`);
 
         ulList.appendChild(listElements);
 
-    }
+    });
+
 }
 
 hideList = () => {

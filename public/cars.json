@@ -1,6 +1,21 @@
 {
-    "cars1": "Volvo",
-    "cars2": "BMW",
-    "cars3": "SAAB",
-    "cars4": "Mercedes"
+    "cars" : [
+        {
+            "Brand": "Volvo",
+            "Modell": "V70",
+            "Year": "2012"
+        },
+        {
+            "Brand": "Saab",
+            "Modell": "9-3",
+            "Year": "2008"
+        },
+        {
+            "Brand": "Mercedes",
+            "Modell": "SL Roadster",
+            "Year": "2022"
+        }
+    ]
 }
+
+
